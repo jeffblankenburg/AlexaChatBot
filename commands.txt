@@ -1,0 +1,6 @@
+//CREATE THE ZIP FILE
+zip -r lambda.zip .
+
+//UPDATE LAMBDA FUNCTION CODE
+aws lambda update-function-code --function-name AlexaChatBotLambda --zip-file fileb://lambda.zip
+
