@@ -1,0 +1,14 @@
+en-US
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/speechcons/abracadabra._TTH_.mp3
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/speechcons/absolutely._TTH_.mp3
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/speechcons/well_well._TTH_.mp3
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/speechcons/read_em_and_weep._TTH_.mp3
+
+GERMAN
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/german/speechcons/abrakadabra._TTH_.mp3
+
+en-GB
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/en_gb/speechcons/abracadabra._TTH_.mp3
+
+pt-BR
+https://m.media-amazon.com/images/G/01/mobile-apps/dex/ask-customskills/audio/pt_br/speechcons/abracadabra._TTH_.mp3

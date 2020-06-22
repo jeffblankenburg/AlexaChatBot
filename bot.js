@@ -1,10 +1,11 @@
-//slotName + ":" + event.currentIntent.slotDetails[slotName].resolutions[0].value
+//TODO: GetNewsIntent
+//TODO: StopIntent
+//TODO: PersonalInfoIntentHandler
+//TODO: SpeechConIntentHandler
+//TODO: SoundEffectIntentHandler
 
 const tmi = require('tmi.js');
 var AWS = require("aws-sdk");
-var https = require("https");
-var keys = require("./keys.js");
-var Airtable = require('airtable');
 const airtable = require('./airtable');
 const handler = require("./handler");
 
