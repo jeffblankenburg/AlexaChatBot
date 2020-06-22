@@ -5,14 +5,8 @@
 //TODO: SoundEffectIntentHandler
 
 const tmi = require('tmi.js');
-var AWS = require("aws-sdk");
 const airtable = require('./airtable');
-const handler = require("./handler");
-
-const Lex = new AWS.LexRuntime({
-    apiVersion: '2016-11-28',
-    region: 'us-east-1'
-})
+const command = require("./command");
 
 // Define configuration options
 const opts = require('./identity.js')
@@ -41,37 +35,21 @@ async function onMessageHandler (target, context, msg, self) {
   //TODO: PLAY A SOUND EFFECT WHEN REQUESTED (FROM THE CLOUD)
   //TODO: GIVE ANSWERS LIKE THE DEV TIPS SKILL DOES.
 
-  const commandName = msg.trim();
-  console.log("COMMAND NAME = " + commandName);
-  if (commandName.toLowerCase().startsWith("alexa")) {
-    const command = commandName.toLowerCase().replace("alexa", "").trim();
+  const message = msg.trim();
+  const messageArray = message.split(" ");
+  console.log("COMMAND NAME = " + messageArray[0]);
 
-    var params = {
-        botAlias: 'BETA', /* required */
-        botName: 'AlexaChatBot', /* required */
-        inputText: command, /* required */
-        userId: context.username, /* required */
-        requestAttributes: {},
-        sessionAttributes: {}
-    };
-
-    Lex.postText(params, async function(err, data) {
-        if (err) console.log(err, err.stack); // an error occurred
-        else {
-          const intentName = data.intentName;
-          let messageOut = "";
-          switch(intentName) {
-            case "AnswerIntent":
-              messageOut = await handler.AnswerIntent(data, context);
-            break;
-          }
-          console.log(`MESSAGE OUT ${messageOut}`);
-          if (messageOut) {
-            client.say(target, messageOut);
-          }
-        }   
-    });
+  switch(messageArray[0]) {
+    case "alexa":
+      client.say(target, await command.alexa(message, context));
+    break;
+    case "!followers":
+      client.say(target, await command.followers(message));
+    break;
   }
+// if (commandName.toLowerCase().startsWith("!followers")) {
+//     
+//   }
 }
 
 // Called every time the bot connects to Twitch chat
