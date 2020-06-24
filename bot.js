@@ -1,4 +1,3 @@
-//TODO: GetNewsIntent
 //TODO: PersonalInfoIntentHandler
 //TODO: SpeechConIntentHandler
 //TODO: SoundEffectIntentHandler
@@ -28,11 +27,13 @@ async function onMessageHandler (target, context, msg, self) {
   console.log("MESSAGE = " + JSON.stringify(msg));
   console.log("SELF = " + JSON.stringify(self));
 
-  airtable.saveChatMessage(context, msg, target);
+  const [chatMessage, userScore] = await Promise.all([
+    airtable.saveChatMessage(context, msg, target),
+    airtable.updateUserScore(context, msg, target)
+  ]);
 
   //TODO: PLAY A SPEECHCON WHEN REQUESTED (FROM THE CLOUD)
   //TODO: PLAY A SOUND EFFECT WHEN REQUESTED (FROM THE CLOUD)
-  //TODO: GIVE ANSWERS LIKE THE DEV TIPS SKILL DOES.
 
   const message = msg.trim();
   const messageArray = message.split(" ");
@@ -50,6 +51,9 @@ async function onMessageHandler (target, context, msg, self) {
     break;
     case "!help":
       client.say(target, "Current command list: alexa, !age, !followers");
+    break;
+    case "!me":
+      client.say(target, await command.me(message, context));
     break;
   }
 // if (commandName.toLowerCase().startsWith("!followers")) {
