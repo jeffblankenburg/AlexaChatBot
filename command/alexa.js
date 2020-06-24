@@ -7,6 +7,7 @@ const Lex = new AWS.LexRuntime({
 })
 
 async function alexa(message, context) {
+  console.log(`<=== command/alexa.js ===>`);
     const command = message.toLowerCase().replace("alexa", "").trim();
 
     var params = {
@@ -24,10 +25,17 @@ async function alexa(message, context) {
         if (err) console.log(err, err.stack); // an error occurred
         else {
           const intentName = data.intentName;
+          console.log(`INTENT NAME ${intentName}`);
           let messageOut = "";
           switch(intentName) {
             case "AnswerIntent":
               messageOut = await handler.AnswerIntent(data, context);
+            break;
+            case "GoodbyeIntent":
+              messageOut = await handler.GoodbyeIntent(data, context);
+            break;
+            case "NewsIntent":
+              messageOut = await handler.NewsIntent(data, context);
             break;
           }
           console.log(`MESSAGE OUT ${messageOut}`);

@@ -1,5 +1,4 @@
 //TODO: GetNewsIntent
-//TODO: StopIntent
 //TODO: PersonalInfoIntentHandler
 //TODO: SpeechConIntentHandler
 //TODO: SoundEffectIntentHandler
@@ -43,8 +42,14 @@ async function onMessageHandler (target, context, msg, self) {
     case "alexa":
       client.say(target, await command.alexa(message, context));
     break;
+    case "!age":
+      client.say(target, await command.age(message));
+    break;
     case "!followers":
       client.say(target, await command.followers(message));
+    break;
+    case "!help":
+      client.say(target, "Current command list: alexa, !age, !followers");
     break;
   }
 // if (commandName.toLowerCase().startsWith("!followers")) {

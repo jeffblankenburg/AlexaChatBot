@@ -11,6 +11,7 @@
   "dependencies": {
     "airtable": "^0.8.1",
     "https": "^1.0.0",
-    "tmi.js": "^1.5.0"
+    "tmi.js": "^1.5.0",
+    "node-fetch": "^2.6.0"
   }
 }

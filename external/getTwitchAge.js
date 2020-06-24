@@ -1,22 +1,22 @@
 const fetch = require('node-fetch');
 const _ = require('lodash');
 
-function getTwitchFollowers(args) {
-  console.log(`<=== external/getTwitchFollowers.js ===>`);
+function getTwitchAge(args) {
+  console.log(`<=== external/getTwitchAge.js ===>`);
   let username = args.replace("@", "");
   console.log(`USERNAME ${username}`);
 
   if (_.isNil(username) || _.isEmpty(username) || _.isUndefined(username)) username = 'amazonalexa';
 
-  const url = `https://api.crunchprank.net/twitch/followcount/${username}`;
+  const url = `https://decapi.me/twitch/accountage/${username}`;
 
   const options = {
     method: 'GET',
   };
 
   return fetch(url, options)
-    .then((res) => res.json())
+    .then((res) => res.text())
     .then((r) => r);
 }
 
-module.exports = getTwitchFollowers;
+module.exports = getTwitchAge;
