@@ -39,26 +39,43 @@ async function onMessageHandler (target, context, msg, self) {
   const messageArray = message.split(" ");
   console.log("COMMAND NAME = " + messageArray[0]);
 
+  //!watchtime !streamplay
+
   switch(messageArray[0]) {
     case "alexa":
       client.say(target, await command.alexa(message, context));
     break;
+    case "!8ball":
+      client.say(target, await command.eightball(message));
+    break;
     case "!age":
       client.say(target, await command.age(message));
+    break;
+    case "!commands":
+      client.say(target, "Current command list: alexa, !8ball <question>, !age, !followers, !sub");
     break;
     case "!followers":
       client.say(target, await command.followers(message));
     break;
-    case "!help":
-      client.say(target, "Current command list: alexa, !age, !followers");
+    case "!leaderboard":
+    client.say(target, await command.leaderboard(context.username));
     break;
     case "!me":
       client.say(target, await command.me(message, context));
     break;
+    case "!pickacard":
+      client.say(target, await command.pickacard());
+    break;
+    case "!rules":
+      client.say(target, "This is the ♥.");
+    break;
+    case "!schedule":
+      client.say(target, await command.schedule(target));
+    break;
+    case "!sub":
+      client.say(target, `You can subscribe to this channel here: https://subs.twitch.tv/${target.replace("#", "")}`);
+    break;
   }
-// if (commandName.toLowerCase().startsWith("!followers")) {
-//     
-//   }
 }
 
 // Called every time the bot connects to Twitch chat

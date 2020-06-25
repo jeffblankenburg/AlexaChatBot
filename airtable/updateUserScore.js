@@ -6,7 +6,7 @@ async function updateUserScore(context, message, target) {
     console.log(`<=== airtable/updateUserScore.js ===>`);
     //DETERMINE IF USER IS ALREADY IN DATABASE.
     const url = `https://api.airtable.com/v0/${keys.airtable_base_twitch}/User?api_key=${keys.airtable_api_key}&filterByFormula=AND(Username%3D"${context.username.toLowerCase()}")`;
-    console.log(`FULL PATH ${url}`);
+    //console.log(`FULL PATH ${url}`);
         //IF NO, INSERT THEM AND GET RECORDID
         //IF YES, GET RECORDID
 
@@ -17,7 +17,6 @@ async function updateUserScore(context, message, target) {
     return fetch(url, options)
     .then((res) => res.json())
     .then((r) => {
-        console.log(`RECORD LENGTH ${r.records.length}`);
         if (r.records.length === 0) createUserRecord(context.username.toLowerCase());
         else updateScore(r.records[0]);
     });
@@ -47,7 +46,7 @@ function updateScore(user) {
               console.error(err);
               return;
             }
-            console.log("SCORE UPDATED");
+            //console.log("SCORE UPDATED");
           });
     });
 }

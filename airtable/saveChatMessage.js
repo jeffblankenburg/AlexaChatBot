@@ -10,7 +10,7 @@ async function saveChatMessage(context, message, target) {
             console.error("ERROR = " + err);
             return;
             }
-            console.log("RECORDID = " + record.getId());
+            //console.log("RECORDID = " + record.getId());
         }
         );
 }
