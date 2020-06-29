@@ -8,7 +8,7 @@ const Lex = new AWS.LexRuntime({
 
 async function alexa(message, context) {
   console.log(`<=== command/alexa.js ===>`);
-    const command = message.toLowerCase().replace("alexa", "").trim();
+    const command = message.toLowerCase().replace("alexa,", "").replace("alexa", "").trim();
 
     var params = {
         botAlias: 'BETA', /* required */
