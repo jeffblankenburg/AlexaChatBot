@@ -53,9 +53,9 @@ async function onMessageHandler (target, context, msg, self) {
     case "!age":
       client.say(target, await command.age(message));
     break;
-    case "!casino": case "!chatsino":
-      client.say(target, "Current chatsino commands: !roulette <bet> <position>");
-    break;
+    // case "!casino": case "!chatsino":
+    //   client.say(target, "Current chatsino commands: !roulette <bet> <position>");
+    // break;
     case "!commands":
       client.say(target, "Current command list: alexa, !8ball <question>, !age <username>, !followers <username>, !pickacard, !rps, !sub");
     break;
@@ -71,18 +71,18 @@ async function onMessageHandler (target, context, msg, self) {
     case "!me":
       client.say(target, await command.me(message, context));
     break;
-    case "!paytable":
-      client.say(target, await chatsino.paytable(message, context));
-    break;
+    // case "!paytable":
+    //   client.say(target, await chatsino.paytable(message, context));
+    // break;
     case "!pickacard":
       client.say(target, await command.pickacard());
     break;
-    case "!poker":
-      client.say(target, await chatsino.poker(message, context));
-    break;
-    case "!roulette":
-      client.say(target, await chatsino.roulette(message, context));
-    break;
+    // case "!poker":
+    //   client.say(target, await chatsino.poker(message, context));
+    // break;
+    // case "!roulette":
+    //   client.say(target, await chatsino.roulette(message, context));
+    // break;
     case "!rps":
       client.say(target, await command.rps(context));
     break;
@@ -95,9 +95,9 @@ async function onMessageHandler (target, context, msg, self) {
     case "!schedule":
       client.say(target, await command.schedule(target));
     break;
-    case "!slots":
-      client.say(target, await chatsino.slots(message, context));
-    break;
+    // case "!slots":
+    //   client.say(target, await chatsino.slots(message, context));
+    // break;
     case "!sub":
       client.say(target, `You can subscribe to this channel here: https://subs.twitch.tv/${target.replace("#", "")}`);
     break;
